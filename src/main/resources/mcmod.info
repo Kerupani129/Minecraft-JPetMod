@@ -1,0 +1,18 @@
+[
+{
+	"modinfoversion": 2,
+	"modid": "jpetmod",
+	"name": "Jewelpet Mod",
+	"description": "This Mod adds Jewelpet to the game.",
+	"version": "${version}",
+	"url": "",
+	"updateUrl": "",
+	"authorList": ["Kerupani129"],
+	"credits": "",
+	"logoFile": "",
+	"screenshots": [],
+	"requiredMods": ["Forge"],
+	"dependencies": [],
+	"useDependencyInformation": "false"
+}
+]
