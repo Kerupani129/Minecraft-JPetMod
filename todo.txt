@@ -12,4 +12,5 @@ setTextureSize はいらないのでは？
 うきわ
 子供の追加
 getList() → getInstance()
+JPetInfo の内部クラス化
 Model, Renderer, JPetInfo の newRenderer の引数修正
