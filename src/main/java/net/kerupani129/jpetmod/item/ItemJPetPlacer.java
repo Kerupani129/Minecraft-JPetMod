@@ -2,6 +2,8 @@ package net.kerupani129.jpetmod.item;
 
 import java.util.List;
 
+import net.kerupani129.jpetmod.JPetInfo;
+import net.kerupani129.jpetmod.JPetInfoList;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
@@ -13,6 +15,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
@@ -23,54 +28,50 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import net.minecraft.item.*;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.kerupani129.jpetmod.*;
-
 public class ItemJPetPlacer extends ItemMonsterPlacer {
-	
-	// 
+
+	//
 	// コンストラクタ
-	// 
+	//
 	public ItemJPetPlacer() {
 		super();
 	}
-	
-	// 
+
+	//
 	// 色の設定
-	// 
+	//
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack stack, int renderPass) {
 		JPetInfo info = JPetInfoList.getList().get(Integer.valueOf(stack.getMetadata()));
 		return (renderPass == 0) ? (info.primaryEggColor) : (info.secondaryEggColor);
 	}
-	
-	// 
+
+	//
 	// 表示名取得
-	// 
+	//
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
-		
+
 		String s = ("" + StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
 		JPetInfo info = JPetInfoList.getList().get(Integer.valueOf(stack.getMetadata()));
 		String s1 = (String)EntityList.classToStringMapping.get(info.entity);
-		
+
 		if (s1 != null) {
 			s += " " + StatCollector.translateToLocal("entity." + s1 + ".name");
 		}
-		
+
 		return s;
-		
+
 	}
-	
+
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
-		
+
 		if (worldIn.isRemote)
 		{
 			return true;
@@ -129,11 +130,11 @@ public class ItemJPetPlacer extends ItemMonsterPlacer {
 			return true;
 		}
 	}
-	
+
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
 	{
-		
+
 		if (worldIn.isRemote)
 		{
 			return itemStackIn;
@@ -187,41 +188,40 @@ public class ItemJPetPlacer extends ItemMonsterPlacer {
 			}
 		}
 	}
-	
-	// 
+
+	//
 	// スポーン処理
-	// 
+	//
 	public static Entity spawnCreature(World worldIn, int entityID, double x, double y, double z) {
-		
+
 		JPetInfo info = JPetInfoList.getList().get(entityID);
-		
+
 		Entity entity = info.newEntity(worldIn);
-		
+
 		if (entity instanceof EntityLivingBase) {
 			EntityLiving entityliving = (EntityLiving)entity;
 			entity.setLocationAndAngles(x, y, z, MathHelper.wrapAngleTo180_float(worldIn.rand.nextFloat() * 360.0F), 0.0F);
 			entityliving.rotationYawHead = entityliving.rotationYaw;
 			entityliving.renderYawOffset = entityliving.rotationYaw;
-			entityliving.func_180482_a(worldIn.getDifficultyForLocation(new BlockPos(entityliving)), (IEntityLivingData)null);
+			entityliving.onInitialSpawn(worldIn.getDifficultyForLocation(new BlockPos(entityliving)), (IEntityLivingData)null);
 			worldIn.spawnEntityInWorld(entity);
 			entityliving.playLivingSound();
 		}
-		
+
 		return entity;
-		
+
 	}
-	
-	// 
+
+	//
 	// 各スポーンエッグの登録
-	// 
-	@SuppressWarnings("unchecked")
+	//
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
+	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
 		int size = JPetInfoList.getList().size();
 		for (int i = 0; i < size; i++) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}
 	}
-	
+
 }

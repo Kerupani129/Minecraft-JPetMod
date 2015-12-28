@@ -4,16 +4,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import net.kerupani129.jpetmod.entity.passive.EntityJPet;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.stats.AchievementList;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
-
-import net.kerupani129.jpetmod.entity.passive.EntityJPet;
 
 public class EntityAIJPetMate extends EntityAIBase
 {
@@ -24,7 +22,6 @@ public class EntityAIJPetMate extends EntityAIBase
 	int spawnBabyDelay;
 	/** The speed the creature moves at during mating behavior. */
 	double moveSpeed;
-	private static final String __OBFID = "CL_00001578";
 
 	public EntityAIJPetMate(EntityJPet p_i1619_1_, double p_i1619_2_)
 	{
@@ -89,10 +86,10 @@ public class EntityAIJPetMate extends EntityAIBase
 	private EntityJPet getNearbyMate()
 	{
 		float f = 8.0F;
-		List list = this.theWorld.getEntitiesWithinAABB(EntityJPet.class, this.theAnimal.getEntityBoundingBox().expand((double)f, (double)f, (double)f));
+		List<EntityJPet> list = this.theWorld.getEntitiesWithinAABB(EntityJPet.class, this.theAnimal.getEntityBoundingBox().expand((double)f, (double)f, (double)f));
 		double d0 = Double.MAX_VALUE;
 		EntityJPet entityanimal = null;
-		Iterator iterator = list.iterator();
+		Iterator<EntityJPet> iterator = list.iterator();
 
 		while (iterator.hasNext())
 		{
@@ -117,11 +114,11 @@ public class EntityAIJPetMate extends EntityAIBase
 
 		if (entityageable != null)
 		{
-			EntityPlayer entityplayer = this.theAnimal.func_146083_cb();
+			EntityPlayer entityplayer = this.theAnimal.getPlayerInLove();
 
-			if (entityplayer == null && this.targetMate.func_146083_cb() != null)
+			if (entityplayer == null && this.targetMate.getPlayerInLove() != null)
 			{
-				entityplayer = this.targetMate.func_146083_cb();
+				entityplayer = this.targetMate.getPlayerInLove();
 			}
 
 			if (entityplayer != null)
