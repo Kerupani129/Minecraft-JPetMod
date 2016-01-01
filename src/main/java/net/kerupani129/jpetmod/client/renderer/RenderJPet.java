@@ -1,7 +1,7 @@
 package net.kerupani129.jpetmod.client.renderer;
 
+import net.kerupani129.jpetmod.client.model.ModelJPet;
 import net.kerupani129.jpetmod.entity.passive.EntityJPet;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.relauncher.Side;
@@ -13,7 +13,7 @@ public abstract class RenderJPet<T extends EntityJPet> extends RenderLiving<T> {
 	//
 	// コンストラクタ
 	//
-	public RenderJPet(RenderManager rendermanager, ModelBase modelbase, float f) {
+	public RenderJPet(RenderManager rendermanager, ModelJPet modelbase, float f) {
 		super(rendermanager, modelbase, f);
 	}
 

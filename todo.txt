@@ -1,16 +1,13 @@
-耳の回転中心を変更
-リードの位置を変更
-しっぽをふる
-たれ耳が動く
-目の位置を変更 (全体の高さを基にする)
-import 文の整理
-スポーンバイオームや個数を調整
-英語にも対応
-効果音設定 (金床に乗った時など minecraft:step.anvil ?
-setTextureSize はいらないのでは？
-体のパーツごとに Model にする
-うきわ
-子供の追加
-getList() → getInstance()
-JPetInfo の内部クラス化
-Model, Renderer, JPetInfo の newRenderer の引数修正
+■予定
+	耳の回転中心を変更
+	リードの位置を変更
+	しっぽをふる
+	たれ耳が動く
+	スポーンバイオームや個数を調整
+	効果音設定 (金床に乗った時など minecraft:step.anvil ?
+	体のパーツごとに Model にする
+	うきわ
+	子供の追加
+	目の位置を変更 (全体の高さを基にする)
+■見送り
+	JPetInfo の内部クラス化

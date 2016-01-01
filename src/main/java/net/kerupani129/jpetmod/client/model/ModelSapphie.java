@@ -17,15 +17,14 @@ public class ModelSapphie extends ModelJPet {
 
 		jpetHairOrnament = new ModelRenderer(this);
 		jpetHairOrnament.mirror = false;
-		jpetHairOrnament.setTextureOffset(20, 16).addBox(2F, -10F, -1.9F, 3, 3, 3);
-		jpetHairOrnament.setTextureOffset(20, 22).addBox(0F, -10.1F, -4.5F, 3, 3, 3);
-		jpetHairOrnament.setTextureOffset(20, 16).addBox(-3F, -10.1F, -4.5F, 3, 3, 3);
-		jpetHairOrnament.setTextureOffset(20, 22).addBox(-5F, -10F, -1.9F, 3, 3, 3);
-		jpetHairOrnament.setTextureOffset(20, 16).addBox(-4.5F, -10F, 1.1F, 3, 3, 3);
+		jpetHairOrnament.setTextureOffset(20, 16).addBox(2F, -10F, -1.99F, 3, 3, 3);
+		jpetHairOrnament.setTextureOffset(20, 22).addBox(0F, -10.01F, -4.5F, 3, 3, 3);
+		jpetHairOrnament.setTextureOffset(20, 16).addBox(-3F, -10.01F, -4.5F, 3, 3, 3);
+		jpetHairOrnament.setTextureOffset(20, 22).addBox(-5F, -10F, -1.99F, 3, 3, 3);
+		jpetHairOrnament.setTextureOffset(20, 16).addBox(-4.5F, -10F, 1.02F, 3, 3, 3);
 		jpetHairOrnament.setTextureOffset(20, 22).addBox(-1.5F, -10F, 2F, 3, 3, 3);
-		jpetHairOrnament.setTextureOffset(20, 16).addBox(1.5F, -10F, 1.1F, 3, 3, 3);
+		jpetHairOrnament.setTextureOffset(20, 16).addBox(1.5F, -10F, 1.02F, 3, 3, 3);
 		jpetHairOrnament.setRotationPoint(0F, 14F, 0F);
-		jpetHairOrnament.setTextureSize(64, 32);
 		setRotationOffset(jpetHairOrnament, 0F, 0F, 0F);
 
 		jpetRightEar = new ModelRenderer(this);
@@ -34,7 +33,6 @@ public class ModelSapphie extends ModelJPet {
 		jpetRightEar.setTextureOffset(32, 22).addBox(1F, -8F, 4F, 4, 6, 4);
 		jpetRightEar.setTextureOffset(48, 23).addBox(1F, -2F, 4F, 4, 5, 4);
 		jpetRightEar.setRotationPoint(0F, 14F, 0F);
-		jpetRightEar.setTextureSize(64, 32);
 		setRotationOffset(jpetRightEar, 0.1745329F, -1.5707963F, 0F);
 
 		jpetLeftEar = new ModelRenderer(this);
@@ -43,7 +41,6 @@ public class ModelSapphie extends ModelJPet {
 		jpetLeftEar.setTextureOffset(32, 22).addBox(-5F, -8F, 4F, 4, 6, 4);
 		jpetLeftEar.setTextureOffset(48, 23).addBox(-5F, -2F, 4F, 4, 5, 4);
 		jpetLeftEar.setRotationPoint(0F, 14F, 0F);
-		jpetLeftEar.setTextureSize(64, 32);
 		setRotationOffset(jpetLeftEar, 0.1745329F, 1.5707963F, 0F);
 
 		jpetNecklace = new ModelRenderer(this);
@@ -52,7 +49,6 @@ public class ModelSapphie extends ModelJPet {
 		jpetNecklace.setTextureOffset(26, 29).addBox(-1F, 2F, -2.5F, 2, 2, 1);
 		jpetNecklace.setTextureOffset(21, 30).addBox(-0.5F, 4F, -2.5F, 1, 1, 1);
 		jpetNecklace.setRotationPoint(0F, 14F, 0F);
-		jpetNecklace.setTextureSize(64, 32);
 		setRotationOffset(jpetNecklace, 0F, 0F, 0F);
 
 		jpetTailTip = new ModelRenderer(this);
@@ -60,7 +56,6 @@ public class ModelSapphie extends ModelJPet {
 		jpetTailTip.setTextureOffset(50, 9).addBox(-1.5F, 0F, 3F, 3, 3, 3);
 		jpetTailTip.setTextureOffset(50, 16).addBox(-1.5F, 0F, 6F, 3, 3, 3);
 		jpetTailTip.setRotationPoint(0F, 21F, 2F);
-		jpetTailTip.setTextureSize(64, 32);
 		setRotationOffset(jpetTailTip, 0.7853982F, 0F, 0F);
 
 	}

@@ -46,7 +46,7 @@ public class ItemJPetPlacer extends ItemMonsterPlacer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack stack, int renderPass) {
-		JPetInfo info = JPetInfoList.getList().get(Integer.valueOf(stack.getMetadata()));
+		JPetInfo info = JPetInfoList.getInstance().get(Integer.valueOf(stack.getMetadata()));
 		return (renderPass == 0) ? (info.primaryEggColor) : (info.secondaryEggColor);
 	}
 
@@ -57,7 +57,7 @@ public class ItemJPetPlacer extends ItemMonsterPlacer {
 	public String getItemStackDisplayName(ItemStack stack) {
 
 		String s = ("" + StatCollector.translateToLocal(this.getUnlocalizedName() + ".name")).trim();
-		JPetInfo info = JPetInfoList.getList().get(Integer.valueOf(stack.getMetadata()));
+		JPetInfo info = JPetInfoList.getInstance().get(Integer.valueOf(stack.getMetadata()));
 		String s1 = (String)EntityList.classToStringMapping.get(info.entity);
 
 		if (s1 != null) {
@@ -194,7 +194,7 @@ public class ItemJPetPlacer extends ItemMonsterPlacer {
 	//
 	public static Entity spawnCreature(World worldIn, int entityID, double x, double y, double z) {
 
-		JPetInfo info = JPetInfoList.getList().get(entityID);
+		JPetInfo info = JPetInfoList.getInstance().get(entityID);
 
 		Entity entity = info.newEntity(worldIn);
 
@@ -218,7 +218,7 @@ public class ItemJPetPlacer extends ItemMonsterPlacer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		int size = JPetInfoList.getList().size();
+		int size = JPetInfoList.getInstance().size();
 		for (int i = 0; i < size; i++) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}

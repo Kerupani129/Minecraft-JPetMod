@@ -4,7 +4,6 @@ import net.kerupani129.jpetmod.client.model.ModelJPet;
 import net.kerupani129.jpetmod.client.renderer.RenderJPet;
 import net.kerupani129.jpetmod.entity.passive.EntityJPet;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -75,11 +74,11 @@ public class JPetInfo {
 	// レンダラ を インスタンス化
 	//
 	@SideOnly(Side.CLIENT)
-	public RenderJPet<?> newRenderer(RenderManager rendermanager, ModelBase modelbase, float f) {
+	public RenderJPet<?> newRenderer(RenderManager rendermanager, ModelJPet modeljpet, float f) {
 		RenderJPet<?> instance = null;
 		try {
 			if (renderer != null) {
-				instance = renderer.getConstructor(RenderManager.class, ModelBase.class, float.class).newInstance(rendermanager, modelbase, f);
+				instance = renderer.getConstructor(RenderManager.class, ModelJPet.class, float.class).newInstance(rendermanager, modeljpet, f);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -9,7 +9,7 @@ import net.kerupani129.jpetmod.client.renderer.RenderSapphie;
 import net.kerupani129.jpetmod.entity.passive.EntitySango;
 import net.kerupani129.jpetmod.entity.passive.EntitySapphie;
 
-public class JPetInfoList extends ArrayList<JPetInfo> {
+public final class JPetInfoList extends ArrayList<JPetInfo> {
 
 	private static final JPetInfoList list = new JPetInfoList();
 
@@ -22,7 +22,7 @@ public class JPetInfoList extends ArrayList<JPetInfo> {
 
 	}
 
-	public static JPetInfoList getList() {
+	public static JPetInfoList getInstance() {
 		return list;
 	}
 

@@ -99,7 +99,7 @@ public abstract class EntityJPet extends EntityTameable {
 	@Override
 	public EntityJPet createChild(EntityAgeable ageable) {
 
-		JPetInfoList list = JPetInfoList.getList();
+		JPetInfoList list = JPetInfoList.getInstance();
 
 		return list.get(this.rand.nextInt(list.size())).newEntity(this.worldObj);
 

@@ -66,7 +66,7 @@ public class JPetMod {
 		BiomeGenBase[] biomeArray = biomeList.toArray(new BiomeGenBase[0]);
 
 		// キャラごとに登録
-		for (JPetInfo info : JPetInfoList.getList()) {
+		for (JPetInfo info : JPetInfoList.getInstance()) {
 			EntityRegistry.registerModEntity(info.entity, info.name, info.id, this, 80, 3, true);
 			EntityRegistry.addSpawn(info.entity, 100, 10, 20, EnumCreatureType.CREATURE, biomeArray);
 			if(event.getSide().isClient()) {

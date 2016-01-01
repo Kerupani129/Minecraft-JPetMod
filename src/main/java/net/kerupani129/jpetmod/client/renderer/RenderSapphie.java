@@ -1,7 +1,7 @@
 package net.kerupani129.jpetmod.client.renderer;
 
+import net.kerupani129.jpetmod.client.model.ModelJPet;
 import net.kerupani129.jpetmod.entity.passive.EntitySapphie;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
@@ -16,7 +16,7 @@ public class RenderSapphie extends RenderJPet<EntitySapphie> {
 	//
 	// コンストラクタ
 	//
-	public RenderSapphie(RenderManager rendermanager, ModelBase modelbase, float f) {
+	public RenderSapphie(RenderManager rendermanager, ModelJPet modelbase, float f) {
 		super(rendermanager, modelbase, f);
 	}
 
