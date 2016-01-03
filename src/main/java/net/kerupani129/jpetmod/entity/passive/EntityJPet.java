@@ -114,9 +114,9 @@ public abstract class EntityJPet extends EntityTameable {
 	}
 
 	//
-	// 首の高さ設定 (独自拡張)
+	// リードの高さ設定 (独自拡張)
 	//
-	public float getNeckHeight() {
+	public float getLeashHeight() {
 		return 0.625F;
 	}
 
